@@ -18,5 +18,5 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEquals(max_integer([10, -2, 2, 30]), 30)
         self.assertEquals(max_integer([-1, -2, -3, -4]), -1)
 
-    def empty_list(self):
+    def test_empty_list(self):
         self.assertEquals(max_integer([]), None)
