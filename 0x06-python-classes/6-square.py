@@ -8,8 +8,8 @@ class Square:
     Defines a square with optional parameter size
     """
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     """Area of square
 
@@ -49,12 +49,15 @@ class Square:
     Prints a square of size __size
     """
     def my_print(self):
-        for i in range(self.__size):
+        if self.__size == 0:
+            print()
+            return
+        for i in range(self.__position[1] + self.__size):
+            if i < self.__position[1]:
+                print()
             for j in range(self.__position[0] + self.__size):
                 if j < self.__position[0]:
                     print(" ", end="")
                     continue
                 print("#", end="")
-            print()
-        if self.__size == 0:
             print()
