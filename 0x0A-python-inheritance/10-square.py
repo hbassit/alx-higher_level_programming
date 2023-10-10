@@ -17,5 +17,6 @@ class Square(Rectangle):
         Args:
             size: legth of side of square
         """
-        super().__init__(size, size)
         self.__size = size
+        super().__init__(size, size)
+
