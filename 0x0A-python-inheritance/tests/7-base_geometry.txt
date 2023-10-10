@@ -35,6 +35,16 @@ Traceback (most recent call last):
 ...
 TypeError: list must be an integer
 
+>>> bg.integer_validator("tuple", (1, ))
+Traceback (most recent call last):
+...
+TypeError: tuple must be an integer
+
+>>> bg.integer_validator("set", {9, 10})
+Traceback (most recent call last):
+...
+TypeError: set must be an integer
+
 >>> bg.integer_validator("bool", True)
 Traceback (most recent call last):
 ...
