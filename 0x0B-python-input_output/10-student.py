@@ -20,7 +20,7 @@ class Student:
         """
         Function that retrieves dictionary representation of a Student object
         """
-        if not attrs:
+        if attrs == None:
             return self.__dict__
         for attr in attrs:
             if type(attr) is not str:
