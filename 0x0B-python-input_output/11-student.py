@@ -35,6 +35,8 @@ class Student:
         """
         Function that replaces all attributes of student instance
         """
+        if not json:
+            return
         self.__dict__ = dict()
         for key in json.keys():
             self.__dict__[key] = json[key]
