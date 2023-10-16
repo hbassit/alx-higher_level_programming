@@ -74,7 +74,11 @@ class Rectangle(Base):
 
     def display(self):
         """Prints rectangle unto standard output"""
-        for i in range(self.__height):
+        for i in range(self.__y + self.__height):
+            if i < self.__y:
+                print()
+                continue
+            print(" " * self.__x, end="")
             print("#" * self.__width)
 
     def __str__(self):
