@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import unittest
+import sys
 from models.rectangle import Rectangle
+from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
@@ -108,6 +110,29 @@ class TestRectangle(unittest.TestCase):
 
         r = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(56, r.area())
+
+    def test_display(self):
+        r = Rectangle(4, 6)
+        expected = "####\n####\n####\n####\n####\n####\n"
+
+        captured = StringIO()
+        sys.stdout = captured
+
+        r.display()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(captured.getvalue(), expected)
+
+        r = Rectangle(3, 2)
+        expected = "###\n###\n"
+
+        captured = StringIO()
+        sys.stdout = captured
+
+        r.display()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(captured.getvalue(), expected)
 
 
 if __name__ == "__main__":
