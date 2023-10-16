@@ -6,7 +6,7 @@ Module which contains the base class
 
 class Base:
     """
-    Class describing the base object 
+    Class describing the base object
     """
     __nb_objects = 0
 

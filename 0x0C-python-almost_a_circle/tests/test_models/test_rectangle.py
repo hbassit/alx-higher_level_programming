@@ -21,13 +21,13 @@ class TestRectangle(unittest.TestCase):
 
     def test_none_id(self):
         r = Rectangle(10, 2)
-        self.assertEqual(2, r.id)
+        self.assertEqual(4, r.id)
 
         r = Rectangle(5, 3, 5, 6)
-        self.assertEqual(3, r.id)
+        self.assertEqual(5, r.id)
 
         r = Rectangle(2, 3, 5, 7)
-        self.assertEqual(4, r.id)
+        self.assertEqual(6, r.id)
 
     def test_width(self):
         r = Rectangle(2, 5)
@@ -49,6 +49,9 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle(None, 4)
 
+        with self.assertRaises(TypeError):
+            r = Rectangle()
+
     def test_height(self):
         r = Rectangle(4, 8)
         r.height = 3
@@ -68,6 +71,9 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r = Rectangle(1, None)
+
+        with self.assertRaises(TypeError):
+            r = Rectangle(1)
 
     def test_x(self):
         r = Rectangle(3, 6)
@@ -102,6 +108,16 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r = Rectangle(3, 3, 3, "string")
+
+    def test_area(self):
+        r = Rectangle(3, 2)
+        self.assertEqual(6, r.area())
+
+        r = Rectangle(4, 5)
+        self.assertEqual(20, r.area())
+
+        r = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(56, r.area())
 
 
 if __name__ == "__main__":
