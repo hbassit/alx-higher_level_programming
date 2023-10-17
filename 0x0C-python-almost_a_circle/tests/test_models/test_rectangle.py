@@ -134,12 +134,39 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(captured.getvalue(), expected)
 
+    def test_display_1(self):
+        r = Rectangle(2, 3, 2, 2)
+        expected = "\n\n  ##\n  ##\n  ##\n"
+
+        captured = StringIO()
+        sys.stdout = captured
+        r.display()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(captured.getvalue(), expected)
+
     def test_str(self):
         r = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual("[Rectangle] (12) 2/1 - 4/6", r.__str__())
 
         r = Rectangle(5, 5, 1, 0, 3)
         self.assertEqual("[Rectangle] (3) 1/0 - 5/5", r.__str__())
+
+    def test_update(self):
+        r = Rectangle(4, 3, 2, 1)
+        r.update(92)
+        self.assertEqual(92, r.id)
+
+        r.update(92, 20, 15)
+        self.assertEqual(20, r.width)
+        self.assertEqual(15, r.height)
+
+        r.update(4, 2, 6, 9, 1)
+        self.assertEqual(4, r.id)
+        self.assertEqual(2, r.width)
+        self.assertEqual(6, r.height)
+        self.assertEqual(9, r.x)
+        self.assertEqual(1, r.y)
 
 if __name__ == "__main__":
     unittest.main()
