@@ -41,6 +41,33 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Square()
 
+    def test_update(self):
+        r = Square(4, 2, 1)
+        r.update(92)
+        self.assertEqual(92, r.id)
+
+        r.update(92, 20, 15)
+        self.assertEqual(20, r.size)
+        self.assertEqual(15, r.x)
+
+        r.update(4, 2, 6, 9)
+        self.assertEqual(4, r.id)
+        self.assertEqual(2, r.size)
+        self.assertEqual(6, r.x)
+        self.assertEqual(9, r.y)
+
+        r.update(size=4)
+        self.assertEqual(4, r.size)
+
+        r.update(size=6, x=1, y=0, id=22)
+        self.assertEqual(6, r.size)
+        self.assertEqual(1, r.x)
+        self.assertEqual(0, r.y)
+        self.assertEqual(22, r.id)
+
+        with self.assertRaises(ValueError):
+            r.update(size=0)
+
 
 if __name__ == "__main__":
     unittest.main()

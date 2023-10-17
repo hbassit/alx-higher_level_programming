@@ -28,6 +28,14 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        attrs = ["id", "size", "x", "y"]
+        for i in range(len(args)):
+            setattr(self, attrs[i], args[i])
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
     def __str__(self):
         """Prints square details"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
