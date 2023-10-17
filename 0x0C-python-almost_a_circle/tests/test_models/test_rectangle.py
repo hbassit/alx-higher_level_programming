@@ -168,5 +168,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(9, r.x)
         self.assertEqual(1, r.y)
 
+
 if __name__ == "__main__":
     unittest.main()
