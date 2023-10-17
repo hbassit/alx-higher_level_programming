@@ -168,6 +168,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(9, r.x)
         self.assertEqual(1, r.y)
 
+        r.update(height=4)
+        self.assertEqual(4, r.height)
+
+        r.update(height=6, x=1, y=0, id=22)
+        self.assertEqual(6, r.height)
+        self.assertEqual(1, r.x)
+        self.assertEqual(0, r.y)
+        self.assertEqual(22, r.id)
+
+        with self.assertRaises(ValueError):
+            r.update(height=0)
+
 
 if __name__ == "__main__":
     unittest.main()
