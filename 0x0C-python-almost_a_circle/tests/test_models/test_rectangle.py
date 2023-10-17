@@ -180,6 +180,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             r.update(height=0)
 
+    def test_to_dictionary(self):
+        r = Rectangle(10, 2, 1, 9, 5)
+        expected = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertEqual(r.to_dictionary(), expected)
+
+        r = Rectangle(4, 5, id=3)
+        expected = {'x': 0, 'y': 0, 'width': 4, 'height': 5, 'id': 3}
+        self.assertEqual(r.to_dictionary(), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
