@@ -35,5 +35,8 @@ class Base:
         instances to a file
         """
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as f:
+            if not list_objs:
+                f.write("")
+                return
             list_objs = [obj.__dict__ for obj in list_objs]
             f.write(cls.to_json_string(list_objs))
