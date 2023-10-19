@@ -68,6 +68,15 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             r.update(size=0)
 
+    def test_to_dictionary(self):
+        r = Square(2, 1, 9, 5)
+        expected = {'x': 1, 'y': 9, 'id': 5, 'size': 2}
+        self.assertEqual(r.to_dictionary(), expected)
+
+        r = Square(4, id=3)
+        expected = {'x': 0, 'y': 0, 'size': 4, 'id': 3}
+        self.assertEqual(r.to_dictionary(), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
